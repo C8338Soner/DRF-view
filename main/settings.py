@@ -23,7 +23,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '^p4%&zqzgz%sg9q1@_80mt!$xs()rw$5^@18zagb3**sw*t$b='
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -124,3 +123,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
