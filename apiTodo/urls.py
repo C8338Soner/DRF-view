@@ -1,4 +1,5 @@
-from django.urls import path
+from django.db import router
+from django.urls import path,include
 from .views import (home,
                     todoList,
                     todoListCreate,
@@ -11,9 +12,15 @@ from .views import (home,
                     TodoListCreate,
                     TodoRetrieveUpdateDelete,
                     TodoConcListCreate,
-                    TodoConcRetreiveUpdateDelete
+                    TodoConcRetreiveUpdateDelete,
+                    TodoVSListRetreive,
+                    TodoMVS
                     )
 
+from rest_framework import routers
+router = routers.DefaultRouter()
+router.register('todovs-List',TodoVSListRetreive)
+router.register('todomvs-List',TodoMVS)
 
 urlpatterns = [
     path('', home),
@@ -29,5 +36,6 @@ urlpatterns = [
     # path('todo-detail/<int:pk>', TodoDetail.as_view()),
     # path('todo-detail/<int:pk>', TodoRetrieveUpdateDelete.as_view()),
     path('todo-detail/<int:pk>', TodoConcRetreiveUpdateDelete.as_view()),
+    path('', include(router.urls))
 
 ]
